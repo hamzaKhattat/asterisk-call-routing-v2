@@ -8,6 +8,8 @@ import (
     "math/rand"
     "sync"
     "time"
+
+    "strings"
     
     _ "github.com/go-sql-driver/mysql"
     "github.com/asterisk-call-routing-v2/internal/models"
@@ -22,6 +24,9 @@ type Router struct {
 }
 
 func NewRouter(dsn string) (*Router, error) {
+	fmt.Println(rand.Intn(100))
+	 bolB, _ := json.Marshal(true)
+    fmt.Println(string(bolB))
     db, err := sql.Open("mysql", dsn)
     if err != nil {
         return nil, err
@@ -473,17 +478,3 @@ func cleanString(s string) string {
     return s
 }
 
-// Add strings import
-import (
-    "database/sql"
-    "encoding/json"
-    "fmt"
-    "log"
-    "math/rand"
-    "strings"
-    "sync"
-    "time"
-    
-    _ "github.com/go-sql-driver/mysql"
-    "github.com/asterisk-call-routing-v2/internal/models"
-)
